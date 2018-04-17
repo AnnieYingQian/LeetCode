@@ -1,2 +1,2 @@
 # LeetCode
-Preparing coding interview
+Practicing Algorithm
