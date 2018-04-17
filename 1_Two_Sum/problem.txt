@@ -1,0 +1,55 @@
+Problem:
+Given an array of integers,
+return indices of the two numbers
+such that they add up to a specific target.
+You may assume that each input would have exactly one solution,
+and you may not use the same element twice.
+Example:
+  Given nums = [2, 7, 11, 15], target = 9,
+  Because nums[0] + nums[1] = 2 + 7 = 9,
+  return [0, 1].
+
+Thoughts:
+Brute force
+  target = 9
+  nums[0] = 2
+  nums[0] + nums[1] = 9 ? return [0, 1] : nums[0] + nums[2] = 9 ?...
+
+  for (int i = 0, i < length, i++) {
+    for (int j = i + 1, j < length, j++) {
+      if (nums[i] + nums[j] == 9) {
+        return [i, j];
+      }
+    }
+  }
+
+  Time complexity: O(N^2)
+  Space complexity: O(1)
+  Searching is time consuming, HashMap can be used to increase efficiency.
+
+Hashmap
+  no duplicate numbers in this array
+  target = 9
+  nums[0] = 2
+
+  map {<2,0>,...}
+  for (int i = 0, i < length, i++) {
+    if (map.containsKey(target - nums[i]) && map.get(target - nums[i]) != i) {
+      return [i, map.getKey(target - nums[i])]
+    }
+  }
+  Time complexity: O(2 * N) ~ O(N)
+  Space complexity: O(N)
+
+
+  map {<7,0>,...}
+  for (int i = 0, i < length, i++) {
+    if (map.containsKey(nums[i])) {
+      return [i, map.getKey(nums[i])]
+    } else {
+      map.put(target - nums[i], i)
+    }
+  }
+
+  Time complexity: O(N)
+  Space complexity: O(N)
