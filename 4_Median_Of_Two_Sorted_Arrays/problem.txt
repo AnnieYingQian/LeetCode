@@ -20,9 +20,7 @@ Two pointers & traverse
   int[m+n]
   O(m+n)
   nums = [1,2,3]
-  Binary Search
-    median = 2
-    O(log(m+n))
+  nums[1] = 2
   Time complexity: O(m+n)
   Space complexity: O(m+n)
 
@@ -80,3 +78,72 @@ Two pointers & traverse
 
   Time complexity: O(log(m+n))
   Space complexity: O(1)
+
+Another Thoughts Route:
+Brute Force:
+  1. combine two arrays (small -> large) => one sorted arrays
+  2. median:
+    nums1&nums2:
+    even: C0 C1 C2 ... C(l3/2 - 1) C(l3/2) ... C(l3-1)
+    median: (C[(l3-1)/2] + C[length/2]) / 2
+    odd:  C0 C1 C2 ... C(l3/2 - 1) C(l3/2) ... C(l3-1)
+    median: C[length/2]
+
+  Time complexity: O(m+n)
+  Space complexity: O(m+n)
+
+Requirement: The overall run time complexity should be O(log(m+n))
+===> Binary Search
+  Go through only one time
+  nums1&nums2:
+  even: C0 C1 C2 ... C((l3-1)/2) C(l3/2) ... C(l3-1)
+  median: (C[(l3-1)/2] + C[length/2]) / 2
+  odd:  C0 C1 C2 ... C(l3/2 - 1) C(l3/2) ... C(l3-1)
+  median: C[length/2]
+
+  How to find k without combine two arrays?
+  nums1: A0 A1 A2 ... A(m1-1) A(m1) .... A(l1-1)
+  nums2: B0 B1 B2 ... B(m2-1) B(m2) .... B(l2-1)
+  Corner case:
+  nums1.length == 0;
+  nums2.length == 0;
+  Business logic
+  start = min(A0, B0)
+  end = max(A[l1-1], B[l2-1])
+  nums1 & nums2 => int array
+  while (start + 1 < end) {
+    mid = start + (end - start) / 2
+    if (countSmallerOrEqual(nums1, mid) + countSmallerOrEqual(nums2, mid) < k) {
+      start = mid
+    } else {
+      end = mid
+    }
+  }
+  Double check:
+  if (countSmallerOrEqual(nums1, start) + countSmallerOrEqual(nums2, start) >= k) {
+      return start;
+  } else {
+    return end;
+  }
+
+countSmallerOrEqual(nums, number) {
+  start = 0
+  end = length - 1
+  // find first index arr[index] > number
+  while (start + 1 < end) {
+      int mid = start + (end - start) / 2;
+      if (arr[mid] <= number) {
+          start = mid;
+      } else {
+          end = mid;
+      }
+  }
+  if (arr[start] > number) {
+      return start;
+  }
+
+  if (arr[end] > number) {
+      return end;
+  }
+  return length
+}
