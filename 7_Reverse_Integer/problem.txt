@@ -1,0 +1,51 @@
+Original Problem:
+Given a 32-bit signed integer, reverse digits of an integer.
+  Example 1:
+  Input: 123
+  Output: 321
+  Example 2:
+  Input: -123
+  Output: -321
+  Example 3:
+  Input: 120
+  Output: 21
+  Note:
+  Assume we are dealing with an environment
+  which could only store integers
+  within the 32-bit signed integer range:
+  [−231,  231 − 1].
+  For the purpose of this problem,
+  assume that your function returns 0
+  when the reversed integer overflows.
+
+Repeat Problem:
+32-bit signed integer range: [-2^31, 2^31-1]
+Corner Case:
+  assume that your function returns 0
+  when the reversed integer overflows.
+123 => 321
+-123 => -321
++,- doesn't mater
+120 => 21 first digit is 0 then no need to keep
+
+Solution:
+From brute force to best solution:
+Input: integer
+Output: integer
+Brute Force:
+traverse:
+loop constrain: 0
+123 / 10 = 12 ... 3
+3
+12 / 10 = 1 ... 2
+32
+1 / 10 = 0 ... 1
+321
+0 / 10 = 0 ... 0 ==> X
+
+If overflow exists, the new result will not equal previous one.
+
+Remember: negative numbers % 10 ==> negative numbers
+
+Time Complexity: O(N)
+Space Complexity: O(1)

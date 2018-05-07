@@ -13,18 +13,20 @@ Input: "cbbd"
 Output: "bb"
 
 Thoughts:
-Brute force:
-  Input: babaddc
-  bab -> 3
-  babaddc
-  aba -> 3 no need to replace
-  babaddc
-  baddc
-  addc
-  dd -> 2 no need to replace
-  ddc
-  dc
-  c
-  Output: bab
-  Time complexity: O(n^2)
-  Space complexity: O(n)
+How to define palindromic?
+aba
+abba
+
+Two Pointers
+even: len1
+a b b a c
+odd:  len2
+a b a c d
+
+find mid point 
+max = Math.max(len1, len2)
+even: end = 3 len1 = 4
+start = end - len1/2 = 3 -
+odd:  start = end - len2/2 + 1
+
+how to

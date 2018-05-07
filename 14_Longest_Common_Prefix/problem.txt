@@ -1,0 +1,88 @@
+Original Problem:
+Write a function to find
+the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: ["flower","flow","flight"]
+Output: "fl"
+Example 2:
+Input: ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+Note:
+All given inputs are in lowercase letters a-z.
+
+Repeat Problem:
+flower flow flight
+find longest common prefix
+none => ""
+
+input: String[]
+output: String
+
+Solution:
+horizontal scanning:
+flower flow => flo
+flo flight => fl
+fl
+int indexOf(String str)
+Returns:
+the index of the first occurrence of the specified substring,
+or -1 if there is no such occurrence.
+Time Complexity: O(S) S = sum (String[] str)
+Space Complexity: O(1)
+
+vertical scanning:
+flower   fl
+flow     fl
+flight   fl
+Time Complexity: O(S) S = sum (String[] str)
+Space Complexity: O(1)
+
+Binary Search:
+start = 0
+end = 5
+mid = start + (end - start) / 2 = 2
+flo     wer
+end = mid -1 = 1
+mid = 0 + (1 - 0)/2 = 0
+f
+true
+start = mid + 1 = 1;
+mid = 1 + (1-1)/2=1
+fl
+true
+
+
+leets
+leetcode
+leetc
+leeds
+start = 0
+end = 4
+mid = start + (end - start) / 2 = 2
+lee     ts
+true
+start = mid + 1 = 3
+mid = 3 + (4-3) /2 = 3
+leet
+true
+start = 3 + 1 = 4
+mid = 4
+leets
+false
+end = 3
+
+string.startsWith(prefix)
+Returns:
+true if the character sequence
+represented by the argument is a prefix of the character sequence
+represented by this string;
+false otherwise.
+Note also that true will be returned
+if the argument is an empty string or is equal to this String object
+as determined by the equals(Object) method
+
+Time Complexity: O(S * log(N))
+N times of iteration

@@ -1,0 +1,59 @@
+Original Problem:
+Determine whether an integer is a palindrome.
+An integer is a palindrome
+when it reads the same backward as forward.
+
+Example 1:
+Input: 121
+Output: true
+Example 2:
+Input: -121
+Output: false
+Explanation: From left to right, it reads -121.
+From right to left, it becomes 121-.
+Therefore it is not a palindrome.
+Example 3:
+Input: 10
+Output: false
+Explanation: Reads 01 from right to left.
+Therefore it is not a palindrome.
+
+Repeat Problem:
+121 reverse 121 True
+-121 reverse 121- False
+10 reverse 01 False
+
+Input: integer
+Output: Boolean
+
+Solution:
+All negative integers are False
+Brute Force:
+reverse an integer
+== True
+!= False
+
+Time Complexity: O(N)
+Space Complexity: O(1)
+
+Better:
+Cut down time:
+How?
+1234321
+half traverse:
+loop condition(x > res)
+even: x == res
+odd: x / 10 == res
+
+Corner cases:
+  when x < 0, x is not a palindrome.
+  Also if the last digit of the number is 0,
+  in order to be a palindrome,
+  the first digit of the number also needs to be 0.
+  Only 0 satisfy this property.
+  For example, input 10 will be treated as 010
+  and return "true"
+  while we expect"false".
+
+  Time Complexity: O(N/2)
+  Space Complexity: O(1)
