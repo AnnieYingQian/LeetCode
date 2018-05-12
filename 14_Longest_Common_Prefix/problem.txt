@@ -86,3 +86,17 @@ as determined by the equals(Object) method
 
 Time Complexity: O(S * log(N))
 N times of iteration
+Space Complexity: O(1)
+
+Divide and Conquer
+flower flow flight
+start = 0
+end = 2
+mid = 0 + (2 - 0) / 2 = 1
+        flower   flow           flight
+Divide       flow               flight
+Conquer                fl
+
+Time complexity : O(S)
+Space complexity : O(m*log(n))
+logN recursive calls

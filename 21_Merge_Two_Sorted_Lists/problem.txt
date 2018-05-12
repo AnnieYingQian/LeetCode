@@ -1,0 +1,43 @@
+Original Problem:
+Merge two sorted linked lists and return it as a new list.
+The new list should be made
+by splicing together the nodes of the first two lists.
+Example:
+Input: 1->2->4, 1->3->4
+Output: 1->1->2->3->4->4
+
+Repeat Problem:
+Data Structure: singly-linked list
+input: ListNode
+output: ListNode
+list1, list2 sorted
+merge list1 & list2
+
+Solution:
+Brute Force:
+2 pointers, Traverse iteration
+1 -> 2 -> 4
+1 -> 3 -> 4
+1 <= 1
+1
+2 > 1
+1 -> 1
+2 <= 3
+1 -> 1 -> 2
+4 > 3
+1 -> 1 -> 2 -> 3
+4 <= 4
+1 -> 1 -> 2 -> 3 -> 4
+null 4
+1 -> 1 -> 2 -> 3 -> 4 -> 4
+
+if 1 -> 3 -> 4 -> 5
+1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5
+
+special cases:
+null, null => return null
+null, list2 => return list2
+list1, null => return list1
+
+Time Complexity: O(M + N)
+Space Complexity: O(M + N)

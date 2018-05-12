@@ -1,0 +1,56 @@
+Original Problem:
+Implement strStr().
+Return the index of the first occurrence of needle in haystack,
+or -1 if needle is not part of haystack.
+Example 1:
+Input: haystack = "hello", needle = "ll"
+Output: 2
+Example 2:
+Input: haystack = "aaaaa", needle = "bba"
+Output: -1
+Clarification:
+What should we return when needle is an empty string?
+This is a great question to ask during an interview.
+For the purpose of this problem,
+we will return 0 when needle is an empty string.
+This is consistent to C's strstr() and Java's indexOf().
+
+Repeat Problem:
+1. string haystack
+   string needle
+2. index of first occurrence of needle index
+3. no part => null
+
+Solution:
+traverse
+0 1 2 3
+h e l l
+0 1
+l l
+length of needle = 2
+i 0 h
+j 0 l
+i 1 e
+j 0 l
+i 2 l
+j 1 l
+i 3 l
+j 2 == length
+i 4 o
+index = 4 - 2 = 2
+0 1 2 3 4 5 6
+h e l r l r o
+0 1 2
+l r o
+i 0 h
+j 0 l
+i 1 e
+j 0 l
+i 2 l
+j 1 r
+i 3 r
+j 2 o
+i 4 l
+l != o, 4 - 2 + 1
+Time Complexity: O(m * n)
+Space Complexity: O(1)
