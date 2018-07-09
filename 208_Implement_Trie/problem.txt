@@ -24,5 +24,8 @@ Initialize Trie
 new
 
 insert()
+  input: string
+  output:
+
 search()
 startsWith()
